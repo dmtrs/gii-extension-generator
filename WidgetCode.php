@@ -26,13 +26,18 @@ class WidgetCode extends CCodeModel
      * @since 0.1
      */
     public $assets;
-
+    /** Array with scripts (js/css) that exist
+     * under assets folder and will be registered
+     * @var array 
+     * @since 0.1
+     */
+    public $scripts; 
     //Check http://www.yiiframework.com/doc/guide/1.1/en/topics.gii
     public function rules()
     {
         return array_merge(parent::rules(), array(
             array('widgetName, widgetClass', 'required'),
-            array('assets, coreJquery, coreJqueryUi' , 'safe'),
+            array('assets, coreJquery, coreJqueryUi, scripts' , 'safe'),
         ));
     }
     public function prepare()
@@ -41,16 +46,20 @@ class WidgetCode extends CCodeModel
         $basePath = Yii::getPathOfAlias($basePathAlias);
         $path = Yii::getPathOfAlias($basePathAlias.'.'.$this->widgetName).'.php';
 
-        $code = $this->render($this->templatepath.'/widget.php');
-
-        $this->files[] = new CCodeFile($path, $code);
 
         if((bool) $this->assets ) { 
             foreach( array('js','css') as $fileType)
             {
-                $ap = $basePath."/assets/".strtolower($this->widgetName).".".$fileType;
+                $scr = strtolower($this->widgetName).".".$fileType;
+                $ap = $basePath."/assets/".$scr;
                 $this->files[] = new CCodeFile($ap, "/* Put ".$fileType." code in here */\n");
+                $this->scripts[$fileType][] = $scr;
             }
+        } else {
+            $this->scripts = array();
         }
+        
+        $code = $this->render($this->templatepath.'/widget.php');
+        $this->files[] = new CCodeFile($path, $code);
     }
 }
