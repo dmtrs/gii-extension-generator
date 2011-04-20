@@ -10,17 +10,18 @@ so with the power of gii i am able to create a much more better approach for my 
 
 ###Config
 Add files under webapp/protected/gii/widget/ folder and then add
-~~~
-[php]
-		'gii'=>array(
-            ...
-            'generatorPaths'=>array(
-                'application.gii'
-            ),
-            ...
-		),
-~~~        
-to your protected/config/main.php file 
+
+
+    'gii'=>array(
+         ...
+         'generatorPaths'=>array(
+             'application.gii'
+         ),
+         ...
+    ),
+
+to your
+    protected/config/main.php file 
 
 ###Resources 
 [Yii Guide: Automatic Code Generation](http://www.yiiframework.com/doc/guide/1.1/en/topics.gii)
