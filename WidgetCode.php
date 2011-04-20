@@ -2,25 +2,31 @@
 class WidgetCode extends CCodeModel
 {
     /** Register jquery core lib.
-     * @var boolean 
+     * @var boolean
+     * @since 0.1
      */
     public $coreJquery;
     /** Register jquery ui core lib.
      * @var boolean
+     * @since 0.1
      */
     public $coreJqueryUi; 
     /** The base class widget will extend.
-     *  @var string 
+     * @var string 
+     * @since 0.1
      */
     public $widgetClass;
     /** The widget name. This name will be used for the folder as well.
-     *  @var stirng 
+     * @var string 
+     * @since 0.1
      */
     public $widgetName;
     /** If there is a need for an asset folder.
      * @var boolean 
+     * @since 0.1
      */
     public $assets;
+
     //Check http://www.yiiframework.com/doc/guide/1.1/en/topics.gii
     public function rules()
     {
@@ -38,9 +44,13 @@ class WidgetCode extends CCodeModel
         $code = $this->render($this->templatepath.'/widget.php');
 
         $this->files[] = new CCodeFile($path, $code);
-        /** Create assets folder
+
         if((bool) $this->assets ) { 
-            $this->files[] = new CCodeFile($basePath."/assets/", "");
-        }**/
+            foreach( array('js','css') as $fileType)
+            {
+                $ap = $basePath."/assets/".strtolower($this->widgetName).".".$fileType;
+                $this->files[] = new CCodeFile($ap, "/* Put ".$fileType." code in here */\n");
+            }
+        }
     }
 }
