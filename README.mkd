@@ -1,4 +1,4 @@
-gii-widget-generator
+gii-extension-generator
 ===================
 version: 0.1
 author: Dimitrios Mengidis
