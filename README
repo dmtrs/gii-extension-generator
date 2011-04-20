@@ -1,0 +1,30 @@
+gii-widget-generator
+===================
+version: 0.1
+author: Dimitrios Mengidis
+
+###Why 
+I am developing a lot of extensions lately and i have found my self creating a template with common code for widget.
+I have been cutting and adding thinks for diff widget ( some use jquery some not, some have css some others not ...etc ),
+so with the power of gii i am able to create a much more better approach for my widget templates.
+
+###Config
+Add files under webapp/protected/gii/widget/ folder and then add
+~~~
+[php]
+		'gii'=>array(
+            ...
+            'generatorPaths'=>array(
+                'application.gii'
+            ),
+            ...
+		),
+~~~        
+to your protected/config/main.php file 
+
+###Resources 
+[Yii Guide: Automatic Code Generation](http://www.yiiframework.com/doc/guide/1.1/en/topics.gii)
+
+###Changelog
+####Version: 0.1
+- Added widgetName, widgetClass properties.
