@@ -1,8 +1,15 @@
 <?php
 class WidgetCode extends CCodeModel
 {
+    /** The base class widget will extend.
+     *  @var string 
+     */
     public $widgetClass;
+    /** The widget name. This name will be used for the folder as well.
+     *  @var stirng 
+     */
     public $widgetName;
+
     //Check http://www.yiiframework.com/doc/guide/1.1/en/topics.gii
     public function rules()
     {
