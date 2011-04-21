@@ -20,6 +20,7 @@ class <?php echo $this->widgetName; ?> extends <?php echo $this->widgetClass."\n
 <?php if(!empty($corejs)) { ?>
     /** The core javascript libs to register.
      * @var array
+     * @since 0.1
      */
     private $coreJs = array(<?php foreach($corejs as $lib) { echo " '$lib',"; } ?>);
 <?php } echo "\n"; ?>
@@ -28,6 +29,7 @@ class <?php echo $this->widgetName; ?> extends <?php echo $this->widgetClass."\n
     {
 echo "    /** The $type scripts to register.\n";
 echo "     * @var array\n";
+echo "     * @since 0.1\n";
 echo "     */\n";
 echo "    private $$type = array(\n";
         foreach($files as $f) 
@@ -41,6 +43,7 @@ echo "    );\n";
 <?php if((bool) $this->assets ) { ?>
     /** The asset folder after published
      * @var string
+     * @since 0.1
      */
     private $assets;
 <?php } echo "\n";?>
@@ -63,9 +66,21 @@ echo "    );\n";
         }        
 <?php   } ?>
 
-<?php   if(!empty($this->scripts)) { ?>
-<?php //TODO: register scripts js and css here ?>
-<?php   } ?>
+<?php   if(!empty($this->scripts)) {
+    foreach($this->scripts as $k=>$value) 
+    {
+        if(!empty($value)) {
+            echo '        foreach($this->'.$k.' as $file)'."\n";
+            echo "        {\n";
+            if($k == 'js') {
+                echo '            $cs->registerScriptFile($this->assets."/".$file, CClientScript::POS_END);'."\n";
+            } else {
+                echo '            $cs->registerCss($this->assets."/".$file);'."\n";
+            }
+            echo "        }\n";
+        }
+    }
+} ?>
     }
 <?php } echo "\n"; ?>
     public function init()
