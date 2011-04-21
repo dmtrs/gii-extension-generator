@@ -11,9 +11,9 @@ if((bool)$this->coreJqueryUi) {
 /** 
  * <?php echo $this->widgetName."\n"; ?>
  * <?php for($i=0; $i < strlen($this->widgetName); $i++) { echo "="; } echo "\n *\n"; ?>
- * <?php echo "Add description of extension here.\n *\n"; ?>
+ * <?php echo "ADD DESCRIPTION OF EXTERNSION HERE.\n *\n"; ?>
  * @version 0.1
- * @author
+ * @author ADD YOU NAME HERE
  */
 class <?php echo $this->widgetName; ?> extends <?php echo $this->widgetClass."\n"; ?>
 {
