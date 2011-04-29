@@ -1,8 +1,9 @@
 gii-extension-generator
 =======================
 Gii extension generator to produce common code used in extensions.
-- version: 0.1.1
-- author: Dimitrios Mengidis
+
+- Version: 0.1.1
+- Author: Dimitrios Mengidis
 
 ###Why 
 I am developing a lot of extensions lately and i have found my self creating a template with common code for widget.
