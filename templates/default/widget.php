@@ -12,6 +12,7 @@ if((bool)$this->coreJqueryUi) {
  * <?php echo $this->widgetName."\n"; ?>
  * <?php for($i=0; $i < strlen($this->widgetName); $i++) { echo "="; } echo "\n *\n"; ?>
  * <?php echo "ADD DESCRIPTION OF EXTERNSION HERE.\n *\n"; ?>
+ * This base code was generated with the [gii-extension-generator](http://www.yiiframework.com/extension/gii-extension-generator/)
  * @version 0.1
  * @author ADD YOU NAME HERE
  */
