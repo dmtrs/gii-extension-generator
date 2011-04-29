@@ -1,18 +1,16 @@
 gii-extension-generator
 =======================
-version: 0.1 **BETA VERSION**
-author: Dimitrios Mengidis
-
-__Be sure you have checked "Known issue"__
+Gii extension generator to produce common code used in extensions.
+- version: 0.1.1
+- author: Dimitrios Mengidis
 
 ###Why 
 I am developing a lot of extensions lately and i have found my self creating a template with common code for widget.
-I have been cutting and adding thinks for diff widget ( some use jquery some not, some have css some others not ...etc ),
+I have been cutting and adding things for diff widget ( some use jquery some not, some have css some others not ...etc ),
 so with the power of gii i am able to create a much more better approach for my widget templates.
 
 ###Config
 Add files under webapp/protected/gii/widget/ folder and then add
-
 
     'gii'=>array(
          ...
@@ -23,21 +21,27 @@ Add files under webapp/protected/gii/widget/ folder and then add
     ),
 
 to your
+
     protected/config/main.php file
+
 
 __Do not extract it like webapp/protected/gii/gii-extension-generator/ , cause it won't work :)__
 
 ###Known issue
-[Checkbox dissappear](http://code.google.com/p/yii/issues/detail?id=2359). I came up on this bug while creating this extension. 
+**{RESOLVED}** [Checkbox disappear](http://code.google.com/p/yii/issues/detail?id=2359). I came up on this bug while creating this extension. 
 To overcome/workaround and test the extension you must find the asset folder that is published at that view and remove the main.js file.
 You will lose the 'Preview' and the 'Check All' functionality at that view.
 After you are done delete that asset folder so it will be recreated.
 
 ###Resources 
-[Yii Guide: Automatic Code Generation](http://www.yiiframework.com/doc/guide/1.1/en/topics.gii)
+- [Yii Guide: Automatic Code Generation](http://www.yiiframework.com/doc/guide/1.1/en/topics.gii)
+- [Fork me at github](https://github.com/dmtrs/gii-extension-generator)
 
 ###Changelog
+####Version: 0.1.1
+- Bug: Checkbox disappear bug resolved.
 ####Version: 0.1
 - Added core scripts register.
 - Added assets property which publish and registers js and css files
 - Added widgetName, widgetClass properties.
+
