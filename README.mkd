@@ -40,6 +40,7 @@ After you are done delete that asset folder so it will be recreated.
 ###Changelog
 ####Version: 0.1.1
 - Bug: Checkbox disappear bug resolved.
+
 ####Version: 0.1
 - Added core scripts register.
 - Added assets property which publish and registers js and css files
