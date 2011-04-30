@@ -76,7 +76,7 @@ echo "    );\n";
             if($k == 'js') {
                 echo '            $cs->registerScriptFile($this->assets."/".$file, CClientScript::POS_END);'."\n";
             } else {
-                echo '            $cs->registerCss($this->assets."/".$file);'."\n";
+                echo '            $cs->registerCssFile($this->assets."/".$file);'."\n";
             }
             echo "        }\n";
         }
